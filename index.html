@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Taqua</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/logo.svg" class="logo-img">
+            <a href="#home-section" class="logo-text">Taqua </a>
+        </div>
+        <i class='bx bx-menu'id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html"><span>Home</span></a>
+            <a href="jadwal-shalat.html">Prayer Times</a>
+            <a href="asmaul-husna.html">Asmaul Husna</a>
+            <a href="list-surah.html">List Surah</a>
+        </nav>
+    </header>
+    
+    <section id="home-section">
+        <div class="home-content">
+            <div class="dalil-home">
+                <h2 class="h2-dalil">Al-Ahzab: 70</h2>
+            </div>
+            <h1 class="h1-dash">O believers! Be mindful of Allah, and say what is right.</h1>
+            <hr class="hr-dash">
+            <p class="p-dash">See accurate prayer times, 99 good names of Allah, and a list of Surahs in the Holy Quran easily with Taqua.</p>
+        </div>
+        <div class="home-img">
+            <img src="images/img-dash.svg" alt="Taqua" class="img-full">
+            <img src="images/img-dash-mobile.svg" alt="Taqua" class="img-mobile">
+        </div>
+    </section>
+
+    <section id="jadwal-dash">
+        <div class="jadwal-img">
+            <img src="images/img-jadwal.svg" alt="Prayer Times">
+        </div>
+
+        <div class="jadwal-content">
+            <h1 class="h1-dash">Prayer Times</h1>
+            <p class="p-dash">See the prayer entry time accurately and worship on time. Those who keep the five daily prayers and perform them on time, then Allah willing, Allah will glorify him with nine kinds of glory.</p>
+        </div>
+    </section>
+    
+    <section id="asmaul-dash">
+        <div class="asmaul-content">
+            <h1 class="h1-dash">Asma'ul Husna</h1>
+            <p class="p-dash">Know the lafadz and meanings of the 99 good names of Allah. Reading beautiful names can make the heart become calm, eliminated all sins, kept away from forgetfulness, given smoothness in every business until the door opened wide sustenance.</p>
+        </div>
+        <div class="asmaul-img">
+            <img src="images/img-asmaul.svg" alt="Asma'ul Husna">
+        </div>
+    </section>
+    
+    <section id="surah-dash">
+        <div class="surah-img">
+            <img src="images/img-surah.svg" alt="Asma'ul Husna">
+        </div>
+        <div class="surah-content">
+            <h1 class="h1-dash">List Surah</h1>
+            <p class="p-dash">See the list of Surahs of Al-Quran from 30 juz which are divided into 114 surahs. Accompanied by the number of Ayah, surah type, and asma surah. Reading the Qur'an is a form of worship that can bring a servant closer to Allah.</p>
+        </div>
+    </section>
+
+    <footer class="footer" >
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 Taqua | All Right Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home-section"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    
+    </footer>
+
+    <script>
+        let menuIcon = document.querySelector('#menu-icon')
+        let navbar = document.querySelector('.navbar')
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('bx-x')
+            navbar.classList.toggle('active')
+        }
+
+        window.onscroll = () => {
+            menuIcon.classList.remove('bx-x')
+            navbar.classList.remove('active')
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Jadwal Shalat</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/logo.svg" class="logo-img">
+            <a href="index.html" class="logo-text">Taqua </a>
+        </div>
+        <i class='bx bx-menu'id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html"><span>Prayer Times</span></a>
+            <a href="asmaul-husna.html">Asmaul Husna</a>
+            <a href="list-surah.html">List Surah</a>
+        </nav>
+    </header>
+    <section id="section-shalat">
+        <div class="container-shalat">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Prayer Times</h3>
+                    <p class="pjadwal">City/Location: <strong id="city"></strong></p>
+                    <p class="pjadwal">Province/Region: <strong id="prov"></strong></p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Imsak</th>
+                                    <th>Subuh</th>
+                                    <th>Dhuha</th>
+                                    <th>Dzuhur</th>
+                                    <th>Ashar</th>
+                                    <th>Maghrib</th>
+                                    <th>Isya'</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list-jadwal">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p>"Those who keep their prayers. These are the ones who will inherit. Those who will inherit heaven. They will abide therein forever."
+
+                        (Surah Al-Mu'minun: 9-11)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" >
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 Taqua | All Right Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#section-shalat"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    
+    </footer>
+
+    <script>
+        const city = 1222;
+        const date = new Date();
+        const dd = String(date.getDate()).padStart(2, '0');
+        const mm = String(date.getMonth() + 1).padStart(2, '0');
+        const yyyy = date.getFullYear();
+        const now = yyyy + '-' + mm + '-' + dd;
+        
+        const jadwalApi = `https://api.myquran.com/v1/sholat/jadwal/${city}/${yyyy}/${mm}`;
+
+        fetch(jadwalApi)
+        .then(function(response){
+            if (!response.ok){
+                throw new Error("Ada yang salah nih!");
+            } return response.json();
+        })
+        .then((data) => {
+            const jadwal = data.data;
+            const list = jadwal.jadwal;
+            const listJadwal = document.getElementById("list-jadwal");
+            const kota = document.getElementById("city");
+            const prov = document.getElementById("prov");
+
+            kota.innerHTML = jadwal.lokasi;
+            prov.innerHTML = jadwal.daerah;
+
+            list.forEach((el) => {
+                const tr = document.createElement('tr');
+                if(el.date === now){
+                    tr.classList.add('table-primary')
+                }
+
+                //tanggal
+                const dd = document.createElement('td');
+                dd.innerText = el.tanggal;
+                
+                //imsak
+                const imsak = document.createElement('td');
+                imsak.innerText = el.imsak;
+                
+                //subuh
+                const subuh = document.createElement('td');
+                subuh.innerText = el.subuh;
+                
+                //dhuha
+                const dhuha = document.createElement('td');
+                dhuha.innerText = el.dhuha;
+                
+                //dzuhur
+                const dzuhur = document.createElement('td');
+                dzuhur.innerText = el.dzuhur;
+                
+                //ashar
+                const ashar = document.createElement('td');
+                ashar.innerText = el.ashar;
+                
+                //maghrib
+                const maghrib = document.createElement('td');
+                maghrib.innerText = el.maghrib;
+                
+                //isya
+                const isya = document.createElement('td');
+                isya.innerText = el.isya;
+
+                listJadwal.appendChild(tr);
+                tr.appendChild(dd);
+                tr.appendChild(imsak);
+                tr.appendChild(subuh);
+                tr.appendChild(dhuha);
+                tr.appendChild(dzuhur);
+                tr.appendChild(ashar);
+                tr.appendChild(maghrib);
+                tr.appendChild(isya);
+            })
+        })
+
+        //menu-icon
+        let menuIcon = document.querySelector('#menu-icon')
+        let navbar = document.querySelector('.navbar')
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('bx-x')
+            navbar.classList.toggle('active')
+        }
+
+        window.onscroll = () => {
+            menuIcon.classList.remove('bx-x')
+            navbar.classList.remove('active')
+        }
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+    max: 1200px
+         911px
+         768px
+         617px -->

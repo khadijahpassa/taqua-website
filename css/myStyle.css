@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Epilogue', sans-serif;
+    
+}
+
+:root {
+    --bg-color: #f8f4f9;
+    --second-bg-color: #F0E9F7;
+    --text-color: #2A106D;
+    --black-color: #393541;
+    --light-purple-color: #bca9ea;
+    --purple-color: #8663E1;
+    --main-color: #2A106D;
+    --second-color: #F88600;
+    --yellow-color: #F6C33E;
+}
+
+section {
+    background: var(--bg-color);
+    min-height: 100vh;
+}
+
+.header {
+    position: fixed;
+    /* melekat di atas dan kiri */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(54, 25, 84, 0.2);
+    /* ngatur jadi lapisan paling atas */
+    z-index: 100;
+}
+span{
+    color: white;
+}
+#menu-icon {
+    font-size: 2.5rem;
+    color: white;
+    display: none;
+}
+
+.logo-img{
+    height: 3rem;
+    margin: -1rem .5rem -1rem 0;
+}
+.logo-text {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    cursor: default;
+}
+.navbar {
+    margin-left: 3rem;
+}
+.navbar a {
+    font-size: 1rem;
+    color: #e4dcf5;
+    margin-left: 2rem;
+    transition: .5s ease;
+}
+.navbar a:hover {
+    color: var(--light-purple-color);
+}
+/* Home */
+#home-section {
+    padding: 8rem 0 0 9%;
+    text-align: left;
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.dalil-home{
+    background: var(--second-color);
+    border-radius: 30px;
+    padding: .8rem 1.5rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+}
+.h2-dalil{
+    font-size: 1.4rem;
+    color: white;
+}
+.h1-dash{
+    color: #2A106B;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 121.5%;
+    margin-bottom: 1.5rem;
+}
+.hr-dash{
+    border: 1px solid #dbd3ef;
+    width: 15rem;
+}
+.p-dash{
+    color: rgba(42, 16, 107, 0.60);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 137.5%;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+.home-img {
+    display: flex;
+    position: relative;
+    margin-bottom: -6rem;
+}
+.img-full {
+    width: 58vw;
+    display:block;
+}
+.img-mobile{
+   display:none;
+}
+/* Jadwal Dashboard */
+#jadwal-dash {
+    padding: 8rem 9% 5rem;
+    text-align: left;
+    background: var(--second-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+}
+.jadwal-img img{
+    width: 40vw;
+}
+
+/* Asmaul Dashboard */
+#asmaul-dash {
+    padding: 8rem 9% 5rem;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+.asmaul-img img{
+    width: 40vw;
+}
+
+/* Surah Dashboard */
+#surah-dash {
+    padding: 8rem 9% 5rem;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--second-bg-color);
+    gap: 10rem;
+}
+.surah-img img{
+    width: 40vw;
+}
+
+/* Jadwal Shalat */
+#section-shalat {
+    padding: 8rem 9% 5rem;
+    text-align: center;
+}
+h3{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+.pjadwal{
+    color: white;
+    margin: .5rem;
+}
+.container-shalat{
+    margin-top: 20px;
+}
+.card-header{
+    background: var(--second-color);
+    border-radius: 30px 30px 0 0;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.card{
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table tbody tr:nth-child(even) {
+    background: #f0ecf4;
+  }
+.table tbody tr:nth-child(odd) {
+    background: rgb(251, 249, 249);
+  }
+.table th,
+.table td{
+    text-align: center;
+    padding: 15px;
+    line-height: 15px;
+    color: var(--text-color);
+}
+
+
+thead tr th:first-child{
+    background: var(--yellow-color);
+}
+tbody tr td:first-child{
+    background: #fff5dd;
+}
+.table-primary td:first-child{
+    font-weight: bold;
+    background: var(--main-color);
+    color: white;
+}
+
+.table tbody tr:hover {
+    background: #e9e4ed;
+}
+
+.table-primary  th{
+    background: var(--main-color);
+    color: white;
+}
+.table-primary td{
+    font-weight: bold;
+    background: var(--main-color);
+    color: white;
+}
+
+.card-footer {
+    background: var(--second-color);
+    border-radius: 0 0 30px 30px;
+    color: white;
+    text-align: center;
+    padding: 20px 5%;
+    line-height: 20px;
+}
+
+
+/* Asmaul Husna */
+#section-asma {
+    padding: 8rem 5% 5rem;
+    text-align: center;
+}
+#result-asma{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.container-asma{
+    width: 15rem;
+    height: 14rem;
+    margin: auto auto 10px auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(43, 2, 109, 0.086);
+    border: none;
+    background-color: white;
+    padding: 25px;
+    display: grid;
+    align-items: center;
+    transition: .5s ease;
+    
+}
+.container-asma:hover{
+    transform: scale(1.05);
+}
+.namaAsmaul{
+    color: var(--purple-color);
+    margin-bottom: .1rem;
+    display: block;
+    align-items: center;
+}
+.transAsmaul{
+    display: block;
+    align-items: center;
+}
+
+/* List Surah */
+#section-surah {
+    padding: 8rem 9% 5rem;
+    text-align: center;
+}
+h1{
+    margin-top: 1rem;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    
+}
+#result-surah{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+.container-surah{
+    width: 24rem;
+    margin: auto auto 10px auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(43, 2, 109, 0.086);
+    border: none;
+    background-color: white;
+    padding: 15px ;
+    transition: .5s ease;
+    
+}
+.container-surah:hover{
+    transform: scale(1.05);
+}
+
+.namaSurat{
+    color: var(--second-color);
+    padding: 1rem;
+}
+.ayatSurat, 
+.typeSurat,
+.asmaSurat,
+.transAsmaul{
+    margin: 1rem;
+    color: var(--black-color);
+}
+
+.hr{
+    border: 1px solid #e2e2e2;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.5rem 9%;
+    background: var(--main-color);
+}
+
+.footer-text {
+    font-size: 1rem;
+    color: white;
+}
+
+.footer-iconTop a{
+    display: inline-flex;
+    justify-content: center; /*horizontal*/
+    align-items: center; /*vertikal*/
+    background: var(--yellow-color);
+    padding: .4rem;
+    border-radius: .8rem;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--light-purple-color);
+
+}
+
+.footer-iconTop a i {
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+
+/* BREAK POINT */
+@media (max-width:1200px) {
+    html {
+        font-size: 100%;
+    }
+    .home-img {
+        display: flex;
+        position: relative;
+    }
+    .img-full {
+        width: 60vw;
+    }
+    #result-asma{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .container-surah{
+        width: 20rem;
+    }
+}
+
+@media (max-width:911px) {
+    html {
+        font-size: 80%;
+    }
+    .header {
+        padding: 2rem 5%;
+    }
+    section {
+        padding: 8rem 3% 2rem;
+    }
+    #jadwal-dash,
+    #asmaul-dash,
+    #surah-dash{
+        gap: 5rem;
+    }
+    .jadwal-img img,
+    .asmaul-img img,
+    .surah-img img{
+        width: 45vw;
+    }
+    .container-surah{
+        width: 18rem;
+    }
+    .footer {
+        padding: 2rem 5%;
+    }
+}
+
+@media (max-width:768px) {
+    #menu-icon {
+        display: block;
+        margin-top: 1rem;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 90%;
+        padding: 1rem 3%;
+        background: var(--purple-color);
+        border-top: .1rem solid rgba(0,0,0,0.2);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2);
+        display: none;
+    }
+    .navbar.active{
+        display: block;
+    }
+    .navbar a{
+        display: block;
+        font-size: 1.5rem;
+        margin: 3rem 0;
+    }
+    .hr-dash{
+        width: 25rem;
+    }
+    #result-surah{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container-surah{
+        width: 24rem;
+    }
+    
+    #home-section {
+        margin-top: 8rem;
+        flex-direction: column;
+        padding: 8rem 9% 0 ;
+    }
+    .home-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .home-content .p-dash {
+        font-size: 1.5rem;
+    }
+    
+    .img-full{
+        display:none;
+    }
+    .img-mobile{
+        width: 90vw;
+        display:block;
+    }
+    #section-asma{
+        padding: 12rem 9% 5rem ;
+    }
+    #result-asma{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #section-shalat{
+        padding: 10rem 9% 5rem ;
+    }
+    #section-surah{
+        padding: 12rem 9% 5rem ;
+    }
+    .footer-text {
+        font-size: 1.2rem;
+        color: white;
+    }
+}
+
+@media (max-width: 617px) {
+    html {
+        font-size: 80%;
+    }
+    #section-shalat{
+        padding: 10rem 5% 5rem ;
+    }
+    #jadwal-dash,
+    #asmaul-dash,
+    #surah-dash{
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    .jadwal-img img,
+    .asmaul-img img,
+    .surah-img img{
+        width: 60vw;
+    }
+
+    #section-shalat{
+        font-size: 85%;
+    }
+
+    .card-footer{
+        line-height: 15px;
+        font-size: .8rem;
+    }
+    #result-asma{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container-asma{
+        width: 18rem;
+        height: 12rem;
+    }
+    .container-surah{
+        width: 18rem;
+    }
+}
+@media (max-width: 450px) {
+    html {
+        font-size: 75%;
+    }
+    
+    .footer {
+        flex-direction: column-reverse;
+    }
+
+    .footer p{
+        text-align: center;
+        margin-top: 2rem;
+
+    }
+    #section-shalat{
+        font-size: 96%;
+    }
+    .table th,
+    .table td{
+    text-align: center;
+    padding: 8px 5px;
+    }
+    tbody tr td:first-child{
+        width: 85px;
+    }
+    .container-asma{
+        width: 15rem;
+        height: 15rem;
+    }
+    .container-surah{
+        width: 15rem;
+    }
+    .card-footer{
+        line-height: 15px;
+        font-size: 1rem;
+    }
+}
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
+
+    <!-- boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Daftar Surah</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/logo.svg" class="logo-img">
+            <a href="index.html" class="logo-text">Taqua </a>
+        </div>
+        <i class='bx bx-menu'id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="jadwal-shalat.html">Prayer Times</a>
+            <a href="asmaul-husna.html">Asmaul Husna</a>
+            <a href="list-surah.html"><span>List Surah</span></a>
+        </nav>
+    </header>
+    <section id="section-surah">
+        <h1>List Surah of Al-Qur'an</h1>
+        <div id="result-surah"></div>
+    </section>
+
+    <footer class="footer" >
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 Taqua | All Right Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#section-surah"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    
+    </footer>
+
+    <script>
+        // list surah
+window.onload = function () {
+    getDataSurah();
+}
+
+const surahApi = `https://api.banghasan.com/quran/format/json/surat`
+function getDataSurah() {
+    fetch(surahApi)
+    .then(function (response) {
+        //error dari server
+        if (!response.ok) {
+            throw new Error('Waduh! Gagal ambil data nih 🙀');
+        }
+        return response.json();
+    })
+    .then(function(data) {
+        displayData(data);
+    })
+    .catch(function(error) {
+        console.log('Terjadi kesalahan', error);
+    })
+}
+
+function displayData(data) {
+    var resultDiv = document.getElementById("result-surah");
+    resultDiv.innerHTML = '';
+    data.hasil.forEach(function(surat) {
+        var suratDiv = document.createElement('div');
+        suratDiv.classList.add('surah');
+        suratDiv.className = 'container-surah';
+
+
+        var namaSurah = document.createElement('h2');
+        namaSurah.textContent = surat.nama; 
+        namaSurah.className = 'namaSurat'
+
+        var hr = document.createElement('hr');
+        hr.className='hr';
+        
+        var asmaSurah = document.createElement("p");
+        asmaSurah.textContent = "Asma Surah: " + surat.asma;
+        asmaSurah.className = 'asmaSurat'
+       
+        var typeSurah = document.createElement("p");
+        typeSurah.textContent = "Surah Type: " + surat.type;
+        typeSurah.className = 'typeSurat'
+
+        var ayatSurah = document.createElement("p");
+        ayatSurah.textContent = "Number of Ayah: " + surat.ayat;
+        ayatSurah.className = 'ayatSurat'
+
+
+        suratDiv.appendChild(namaSurah);
+        suratDiv.appendChild(hr);
+        suratDiv.appendChild(asmaSurah);
+        suratDiv.appendChild(typeSurah);
+        suratDiv.appendChild(ayatSurah);
+
+        resultDiv.appendChild(suratDiv);
+    })
+}
+
+//menu-icon
+        let menuIcon = document.querySelector('#menu-icon')
+        let navbar = document.querySelector('.navbar')
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('bx-x')
+            navbar.classList.toggle('active')
+        }
+
+        window.onscroll = () => {
+            menuIcon.classList.remove('bx-x')
+            navbar.classList.remove('active')
+        }
+    </script>
+
+    
+</body>
+</html>
